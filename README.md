@@ -34,7 +34,7 @@ I set the `Root storage location for repos` in MGit to `/storage/emulated/0/Docu
 
 ### Markor
 
-Technically, MGit is all you need as you can create/edit files with MGit. However, it's nice to have a dedicated Markdown editor. So, I installed Markor. I set the Notebook location to `Documents/markor`, and from here, I can navigate up to `Documents` and to the `weeknotes` folder, where I can edit the markdown files.
+I installed [Markor](https://play.google.com/store/apps/details?id=net.gsantner.markor&hl=en_GB&gl=US), to edit markdown files. I set the Notebook location to `Documents/markor`, and from here, I can navigate up to `Documents` and to the `weeknotes` folder, where I can edit the markdown files.
 
 ### Process
 
