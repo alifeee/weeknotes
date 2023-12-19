@@ -1,0 +1,27 @@
+{
+  "name": "weeknotes",
+  "version": "0.1.0",
+  "description": "weeknotes by alifeee",
+  "main": "index.js",
+  "scripts": {
+    "dev": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alifeee/weeknotes.git"
+  },
+  "keywords": [
+    "eleventy",
+    "weeknotes"
+  ],
+  "author": "alifeee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alifeee/weeknotes/issues"
+  },
+  "homepage": "https://github.com/alifeee/weeknotes#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
