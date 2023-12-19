@@ -1,22 +1,20 @@
 ---
 layout: base
 title: alifeee's weeknotes
+css:
+- /stylesheet_index.css
 ---
-
-<h1>Weeknotes!</h1>
 
 Site is currently a work in progress :)
 
-<ul>
-  {{#each collections.weeknotes}}
-  <li>
-    <a href="{{ data.page.fileSlug }}">
-      <span>
-        {{ data.page.fileSlug }}
-      </span>
-      -
-      <time>{{ dateDisplay data.page.date }}</time>
-    </a>
-  </li>
+<section id="weeknotes">
+  {{#each (reversed collections.weeknotes)}}
+  <div class="weeknote">
+    <h2>
+      {{ weeknoteTitle data.page.fileSlug }}
+    </h2>
+    <time>{{ dateDisplay data.page.date }}</time>
+    <a href="{{ data.page.fileSlug }}"></a>
+  </div>
   {{/each}}
-</ul>
+</section>

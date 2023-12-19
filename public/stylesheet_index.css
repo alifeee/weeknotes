@@ -1,0 +1,30 @@
+#weeknotes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weeknote {
+  padding: 1rem;
+  margin: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 1rem;
+  border: 1px solid grey;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 40rem;
+  position: relative;
+}
+
+.weeknote h2 {
+  margin: 0;
+}
+
+.weeknote a {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}

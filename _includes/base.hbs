@@ -1,19 +1,36 @@
-<!DOCTYPE html>
+---
+css:
+- /stylesheet.css
+---
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>
-      {{#if title}}
-        {{ title }}
-      {{else}}
-        alifee's weeknotes - {{ page.fileSlug }}
-      {{/if}}
-    </title>
-    {{!-- mobile  --}}
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="/stylesheet.css" />
-  </head>
-  <body>
-    {{{ content }}}
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    {{#if title}}
+    {{title}}
+    {{else}}
+    alifee's weeknotes -
+    {{page.fileSlug}}
+    {{/if}}
+  </title>
+  {{! mobile }}
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  {{#each css}}
+  <link rel="stylesheet" href="{{this}}" />
+  {{/each}}
+</head>
+
+<body>
+  <header>
+    <h1>
+      <a href="/">alifee's weeknotes</a>
+    </h1>
+  </header>
+
+  <main>
+    {{{content}}}
+  </main>
+</body>
+
 </html>
