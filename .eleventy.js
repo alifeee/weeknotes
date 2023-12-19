@@ -11,4 +11,15 @@ module.exports = function (eleventyConfig) {
       day: "numeric",
     });
   });
+
+  // add handler to convert 2023-51 -> "2023 week 51"
+  eleventyConfig.addFilter("weeknoteTitle", (filename) => {
+    let [year, week] = filename.split("-");
+    return `${year} week ${week}`;
+  });
+
+  // add handler to reverse a list (not mutating it)
+  eleventyConfig.addFilter("reversed", (arr) => {
+    return [...arr].reverse();
+  });
 };
