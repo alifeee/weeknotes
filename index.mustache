@@ -3,3 +3,19 @@ layout: base
 ---
 
 <h1>Weeknotes!</h1>
+
+<ul>
+  {{#collections.weeknotes}}
+  <li>
+    <a href="{{ data.page.fileSlug }}">
+      <span>
+        {{ data.page.fileSlug }}
+      </span>
+      -
+      <time>
+        {{ data.page.date }}
+      </time>
+    </a>
+  </li>
+  {{/collections.weeknotes}}
+</ul>
