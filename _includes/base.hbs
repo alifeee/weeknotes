@@ -2,7 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Document</title>
+    <title>
+      {{#if title}}
+        {{ title }}
+      {{else}}
+        alifee's weeknotes - {{ page.fileSlug }}
+      {{/if}}
+    </title>
     <link rel="stylesheet" href="/stylesheet.css" />
   </head>
   <body>
