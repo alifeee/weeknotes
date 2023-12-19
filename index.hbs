@@ -7,17 +7,15 @@ layout: base
 Site is currently a work in progress :)
 
 <ul>
-  {{#collections.weeknotes}}
+  {{#each collections.weeknotes}}
   <li>
     <a href="{{ data.page.fileSlug }}">
       <span>
         {{ data.page.fileSlug }}
       </span>
       -
-      <time>
-        {{ data.page.date }}
-      </time>
+      <time>{{ dateDisplay data.page.date }}</time>
     </a>
   </li>
-  {{/collections.weeknotes}}
+  {{/each}}
 </ul>
