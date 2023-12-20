@@ -2,12 +2,67 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: "BogFace";
+  src: url("/BogFace.woff");
+}
+
 body {
   background-color: pink;
+  font-family: "BogFace";
 }
 
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+header {
+  display: flex;
+  align-items: center;
+}
+
+header #rss {
+  margin-left: 1rem;
+}
+header #rss img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+main {
+  width: 100%;
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+footer {
+  margin-top: auto;
+  padding: 1rem;
+  width: 100%;
+  max-width: 40rem;
+}
+footer hr {
+  margin: 1rem 0;
+  border: none;
+  border-bottom: 1px solid purple;
+}
+footer nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  justify-items: center;
+  align-items: center;
+  margin: 1rem 0;
+}
+footer nav a {
+  margin: 0.5rem 1.5rem;
+}
+footer a {
+  color: black;
+  text-decoration: none;
+}
+footer a:hover {
+  text-decoration: underline;
 }
