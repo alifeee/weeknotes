@@ -22,4 +22,17 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("reversed", (arr) => {
     return [...arr].reverse();
   });
+
+  // add handler to convert date to ISO string
+  eleventyConfig.addFilter("isoDate", (dateObj) => {
+    let date = new Date(dateObj);
+    return date.toISOString();
+  });
+
+  // add handler to return current day for rss feed
+  eleventyConfig.addFilter("getNowDate", () => {
+    let date = new Date();
+    date.setHours(0, 0, 0, 0);
+    return date.toISOString();
+  });
 };

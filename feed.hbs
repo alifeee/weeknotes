@@ -1,0 +1,25 @@
+---
+permalink: /feed.xml
+---
+<?xml version='1.0' encoding='UTF-8'?>
+<?xml-stylesheet href="/feed.xsl" type="text/xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>alifeee's weeknotes</title>
+    <link href="https://weeknotes.alifeee.co.uk/feed.xml" rel="self" />
+    <updated>{{getNowDate}}</updated>
+    <author>
+        <name>alifeee</name>
+    </author>
+    <id>https://weeknotes.alifeee.co.uk/</id>
+
+    {{#each collections.weeknotes}}
+    <entry>
+        <title>alifeee's weeknotes, {{weeknoteTitle page.fileSlug}}</title>
+        <link href="https://weeknotes.alifeee.co.uk/{{page.fileSlug}}" />
+        <id>https://weeknotes.alifeee.co.uk/{{page.fileSlug}}</id>
+        <updated>{{ isoDate data.page.date }}</updated>
+        <summary>what alifeee has been thinking about and doing this week ({{ weeknoteTitle page.fileSlug }})</summary>
+    </entry>
+    {{/each}}
+</feed>
