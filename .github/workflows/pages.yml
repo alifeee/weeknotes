@@ -35,6 +35,8 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
+      - name: check git created dates
+        run: find weeknotes/202* -exec git log --diff-filter=A --follow -1 --format=%at {} \;
       - name: Build
         run: npm run build
 
