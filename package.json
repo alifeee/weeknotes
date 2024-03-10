@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/alifeee/weeknotes#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1"
+    "@11ty/eleventy": "^2.0.1",
+    "markdown-it-anchor": "^8.6.7"
   }
 }
