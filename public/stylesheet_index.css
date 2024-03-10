@@ -9,16 +9,45 @@
   margin: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "title title"
+    "date words";
   grid-gap: 1rem;
   border: 1px solid grey;
   border-radius: 0.5rem;
   width: 100%;
   max-width: 40rem;
   position: relative;
+  background-color: #f5abb7;
+
+  background-size: 25px 25px;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    #9591 0,
+    #9591 2px,
+    #f5abb7 0,
+    #f5abb7 50%
+  );
+}
+
+.weeknote {
+  text-align: center;
 }
 
 .weeknote h2 {
   margin: 0;
+  grid-area: title;
+}
+
+.weeknote .words {
+  grid-area: words;
+  color: #444;
+}
+
+.weeknote .date {
+  grid-area: date;
+  color: #444;
 }
 
 .weeknote a {

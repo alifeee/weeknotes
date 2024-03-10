@@ -1,3 +1,9 @@
+const wordsPerMinute = 200;
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 module.exports = function () {
   return {
     layout: "base",
@@ -7,6 +13,18 @@ module.exports = function () {
     date: "git Created",
     eleventyComputed: {
       title: (data) => `alifeee's weeknotes - ${data.page.fileSlug}`,
+      wordcount: (data) => {
+        const inputPath = data.page.inputPath;
+        const content = require("fs").readFileSync(inputPath, "utf-8");
+        const words = content.split(/\s+/).length;
+        const minutes = words / wordsPerMinute;
+        return `<span class="words">
+            ${numberWithCommas(words)} words, ${Math.ceil(
+          minutes
+        )} mins @ ${wordsPerMinute} wpm
+        </span>
+        `;
+      },
     },
   };
 };

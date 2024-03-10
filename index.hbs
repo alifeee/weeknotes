@@ -15,7 +15,8 @@ css:
     <h2>
       {{ weeknoteTitle data.page.fileSlug }}
     </h2>
-    <time>{{ dateDisplay data.page.date }}</time>
+    {{{ data.wordcount }}}
+    <time class="date">{{ dateDisplay data.page.date }}</time>
     <a href="{{ data.page.fileSlug }}"></a>
   </div>
   {{/each}}
