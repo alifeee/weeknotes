@@ -347,17 +347,17 @@ class WordCount extends HTMLElement {
   connectedCallback() {
     if (this.hasAttribute("parent")) this.parent = this.getAttribute("parent");
 
-    this.render();
+    document.addEventListener("DOMContentLoaded", () => {
+      this.render();
+    });
   }
 
   render() {
     const parent = document.querySelector(this.parent);
-    console.log(parent);
-    var count = 0;
+    let count;
     Countable.count(parent, function (counter) {
       count = counter;
     });
-    console.log(count);
 
     const words = count.words;
     const minutes = words / wordsPerMinute;
