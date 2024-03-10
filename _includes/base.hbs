@@ -21,6 +21,14 @@ css:
   <!-- favicon -->
   <link rel="icon" type="image/png" href="../favicon.png" />
 
+  <!-- rss -->
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="/feed.xml"
+  />
+
   <!-- stylesheets -->
   {{#each css}}
   <link rel="stylesheet" href="{{this}}" />
@@ -29,6 +37,9 @@ css:
   <!-- scripts -->
   <script data-goatcounter="https://alifeee-weeknotes.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+
+  <!-- web components -->
+  <script src="/word-count.js"></script>
 </head>
 
 <body>
@@ -44,6 +55,9 @@ css:
   </header>
 
   <main>
+    {{#if comments}}
+    <word-count></word-count>
+    {{/if}}
     {{{content}}}
     {{#if comments}}
     <script src="https://giscus.app/client.js" data-repo="alifeee/weeknotes" data-repo-id="R_kgDOK7knTw"
