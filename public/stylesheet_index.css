@@ -11,8 +11,8 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas:
-    "title title"
-    "date words";
+    "title date"
+    "words links";
   grid-gap: 1rem;
   border: 1px solid grey;
   border-radius: 0.5rem;
@@ -42,6 +42,11 @@
 
 .weeknote .words {
   grid-area: words;
+  color: #444;
+}
+
+.weeknote .links {
+  grid-area: links;
   color: #444;
 }
 

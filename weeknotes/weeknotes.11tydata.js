@@ -25,6 +25,13 @@ module.exports = function () {
         </span>
         `;
       },
+      links: (data) => {
+        const inputPath = data.page.inputPath;
+        const content = require("fs").readFileSync(inputPath, "utf-8");
+        const links = content.match(/https?:\/\//g);
+        // return length
+        return links ? `<span class="links">${links.length} links</span>` : "";
+      },
     },
   };
 };
