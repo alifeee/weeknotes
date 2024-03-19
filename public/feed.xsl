@@ -1,19 +1,14 @@
-<xsl:stylesheet
-  version="1.0"
+<xsl:stylesheet version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:atom="http://www.w3.org/2005/Atom"
-  exclude-result-prefixes="atom"
->
+  xmlns:atom="http://www.w3.org/2005/Atom" exclude-result-prefixes="atom">
   <xsl:output method="html" version="1.0" encoding="UTF-8" indent="yes" />
   <xsl:template match="/">
     <html xmlns="http://www.w3.org/1999/xhtml">
       <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1"
-        />
-        <title>Web Feed • <xsl:value-of select="atom:feed/atom:title"/></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <title>Web Feed • <xsl:value-of select="atom:feed/atom:title"/>
+        </title>
         <style type="text/css">
           body {
             max-width: 768px;
@@ -101,10 +96,7 @@
 
     <h2>What is an RSS feed?</h2>
     From
-    <a
-      href="https://gist.github.com/andrewstiefel/57a0a400aa2deb6c9fe18c6da4e16e0f"
-      target="_blank"
-      >andrewstiefel's gist.</a
+    <a href="https://gist.github.com/andrewstiefel/57a0a400aa2deb6c9fe18c6da4e16e0f">andrewstiefel's gist.</a
     >
     <p>
       An RSS feed is a data format that contains the latest content from a
@@ -139,7 +131,7 @@
   <xsl:template match="atom:entry">
     <div class="entry">
       <h3>
-        <a target="_blank">
+        <a>
           <xsl:attribute name="href">
             <xsl:value-of select="atom:id" />
           </xsl:attribute>
@@ -149,7 +141,8 @@
       <p>
         <xsl:value-of select="atom:summary" disable-output-escaping="yes" />
       </p>
-      <small> Published: <xsl:value-of select="atom:updated" /> </small>
+      <small> Published: <xsl:value-of select="atom:updated" />
+      </small>
     </div>
   </xsl:template>
 </xsl:stylesheet>
