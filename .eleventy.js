@@ -35,4 +35,11 @@ module.exports = function (eleventyConfig) {
     date.setHours(0, 0, 0, 0);
     return date.toISOString();
   });
+
+  const markdownIt = require("markdown-it");
+  // create a new markdown-it instance with the plugin
+  const markdownItAnchor = require("markdown-it-anchor");
+  const markdownLib = markdownIt({ html: true }).use(markdownItAnchor);
+  // replace the default markdown-it instance
+  eleventyConfig.setLibrary("md", markdownLib);
 };
