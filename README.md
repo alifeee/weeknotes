@@ -1,6 +1,6 @@
 # Weeknotes
 
-Weeknotes!
+[Weeknotes!](http://alifeee.co.uk/weeknotes/)
 
 ## PC Development
 
