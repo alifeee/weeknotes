@@ -18,10 +18,7 @@ css:
     {{{ data.wordcount }}}
     {{{ data.links }}}
     <time class="date">{{ dateDisplay data.page.date }}</time>
-    <a href="{{ data.page.fileSlug }}">
-      {{!-- just for compatibility with no CSS --}}
-      <span >{{ weeknoteTitle data.page.fileSlug }}</span>
-    </a>
+    <a href="{{ data.page.fileSlug }}"></a>
   </div>
   {{/each}}
 </section>
