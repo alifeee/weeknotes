@@ -56,6 +56,9 @@ main h1 {
   text-align: center;
   margin: 1rem 0;
 }
+main img {
+  max-width: 100%;
+}
 
 footer {
   margin-top: auto;

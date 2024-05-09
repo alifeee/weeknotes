@@ -30,7 +30,9 @@ module.exports = function () {
         const content = require("fs").readFileSync(inputPath, "utf-8");
         const links = content.match(/https?:\/\//g);
         // return length
-        return links ? `<span class="links">${links.length} links</span>` : "";
+        return links
+          ? `<span class="links">${links.length} links</span>`
+          : '<span class="links">0 links</span>';
       },
     },
   };
