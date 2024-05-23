@@ -1,7 +1,5 @@
 #weeknotes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
 }
 
 .weeknote {
@@ -61,4 +59,34 @@
   z-index: 1;
   height: 100%;
   width: 100%;
+}
+
+.tracker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 0.125rem;
+}
+.tracker.no-notes {
+  grid-column: 2 / -1;
+  color: gray;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tracker .tag {
+  padding: 0.25rem 0.25rem;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+  background-color: white;
+  border-radius: 0.25rem;
+}
+.tracker .up {
+  position: absolute;
+  top: calc(50% + var(--m) * -100%);
+  width: 2px;
+  height: calc(100% * var(--m));
 }

@@ -3,22 +3,40 @@ layout: base
 title: alifeee's weeknotes
 css:
 - /stylesheet_index.css
+- /colours.css
 ---
 <section id="introduction">
   <p>
     Welcome! Here you will find my weeknotes. I usually write them from my phone at the end of a week.
   </p>
 </section>
-<section id="weeknotes">
+<section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}">
+{{#each 5}}
+<p>Hello {{this}} - {{@index}}</p>
+{{/each}}
   {{#each (reversed collections.weeknotes)}}
-  <div class="weeknote">
-    <h2>
-      {{ weeknoteTitle data.page.fileSlug }}
-    </h2>
-    {{{ data.wordcount }}}
-    {{{ data.links }}}
-    <time class="date">{{ dateDisplay data.page.date }}</time>
-    <a href="{{ data.page.fileSlug }}"></a>
-  </div>
+    <div class="weeknote" style="grid-row:{{add @index 1}}">
+      <h2>
+        {{ weeknoteTitle data.page.fileSlug }}
+      </h2>
+      {{{ data.wordcount }}}
+      {{{ data.links }}}
+      <time class="date">{{ dateDisplay data.page.date }}</time>
+      <a href="{{ data.page.fileSlug }}"></a>
+    </div>
+    {{#if (get ../topicstable.table data.page.fileSlug)}}
+      {{#each (get ../topicstable.table data.page.fileSlug)}}
+      <div class="tracker">
+        {{#if topic}}
+          <span class="tag t-{{slugify topic}}">{{topic}}</span>
+        {{/if}}
+        {{#if goUp}}
+          <div class="up u-{{slugify topic}}" style="--m:{{goUp}}"></div>
+        {{/if}}
+      </div>
+      {{/each}}
+    {{else}}
+      <div class="tracker no-notes">no topics...</div>
+    {{/if}}
   {{/each}}
 </section>

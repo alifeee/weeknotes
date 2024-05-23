@@ -1,0 +1,12 @@
+---
+permalink: /colours.css
+---
+{{#each topicstable.colours}}
+.t-{{slugify @key}} {
+    color: {{this}}
+}
+.u-{{slugify @key}} {
+    background-color: {{this}};
+    left: {{mult (frac @index (add (objlength ../topicstable.colours) -1)) 100}}%;
+}
+{{/each}}
