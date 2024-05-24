@@ -104,11 +104,14 @@ main {
 .tracker .up {
   position: absolute;
   top: calc(50% + var(--m) * -100%);
+  /* border-left-width: 2px;
+  border-left-style: dotted; */
   width: 2px;
   height: calc(100% * var(--m));
 }
 .tracker .up.thick {
   width: 4px;
+  /* border-left-width: 4px; */
 }
 
 @media (max-width: 1200px) {
