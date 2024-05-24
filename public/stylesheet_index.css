@@ -4,7 +4,7 @@
 
 .weeknote {
   padding: 1rem;
-  margin: 0.5rem;
+  margin: 0.5rem 1rem 0.5rem 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto auto;
@@ -14,7 +14,6 @@
   grid-gap: 1rem;
   border: 1px solid grey;
   border-radius: 0.5rem;
-  width: 100%;
   max-width: 40rem;
   position: relative;
   background-color: #f5abb7;
@@ -90,4 +89,26 @@
   top: calc(50% + var(--m) * -100%);
   width: 2px;
   height: calc(100% * var(--m));
+}
+
+@media (max-width: 1200px) {
+  main {
+    max-width: 40rem;
+  }
+  #weeknotes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .weeknote {
+    margin-top: 1rem;
+    width: 100%;
+  }
+  .tracker {
+    margin-bottom: 0.25rem;
+  }
+  .tracker .up {
+    display: none;
+  }
 }
