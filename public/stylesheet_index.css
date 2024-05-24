@@ -127,6 +127,7 @@ main {
     justify-content: center;
     align-items: center;
     max-width: 40rem;
+    padding-right: initial;
   }
   .weeknote {
     margin-top: 1rem;
