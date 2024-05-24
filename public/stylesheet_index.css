@@ -1,12 +1,13 @@
 #weeknotes {
   display: grid;
+  grid-auto-rows: 1fr;
 }
 
 .weeknote {
   padding: 1rem;
   margin: 0.5rem 1rem 0.5rem 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr 3fr;
   grid-template-rows: auto auto;
   grid-template-areas:
     "title date"
@@ -15,6 +16,7 @@
   border: 1px solid grey;
   border-radius: 0.5rem;
   max-width: 40rem;
+  min-width: 25rem;
   position: relative;
   background-color: #f5abb7;
 
@@ -83,12 +85,22 @@
   background-color: white;
   border-radius: 0.25rem;
   rotate: var(--r);
+  border-width: 3px;
+  border-style: solid;
+  box-sizing: content-box;
+}
+.tracker .tag.thick {
+  border-width: 6px;
+  margin: -3px;
 }
 .tracker .up {
   position: absolute;
   top: calc(50% + var(--m) * -100%);
   width: 2px;
   height: calc(100% * var(--m));
+}
+.tracker .up.thick {
+  width: 4px;
 }
 
 @media (max-width: 1200px) {
@@ -104,6 +116,7 @@
   .weeknote {
     margin-top: 1rem;
     width: 100%;
+    min-width: initial;
   }
   .tracker {
     margin-bottom: 0.25rem;

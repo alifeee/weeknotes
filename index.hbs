@@ -4,16 +4,16 @@ title: alifeee's weeknotes
 css:
 - /stylesheet_index.css
 - /colours.css
+js:
+- /alpine.min.js
 ---
 <section id="introduction">
   <p>
     Welcome! Here you will find my weeknotes. I usually write them from my phone at the end of a week.
   </p>
 </section>
-<section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}">
-{{#each 5}}
-<p>Hello {{this}} - {{@index}}</p>
-{{/each}}
+<section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}" x-data="{hover: null}">
+  {{!-- <span x-text="hover"></span> --}}
   {{#each (reversed collections.weeknotes)}}
     <div class="weeknote" style="grid-row:{{add @index 1}}">
       <h2>
@@ -28,10 +28,10 @@ css:
       {{#each (get ../topicstable.table data.page.fileSlug)}}
       <div class="tracker">
         {{#if topic}}
-          <span class="tag t-{{slugify topic}}" style="--r:{{mult (add (random) -0.5) 5}}deg">{{topic}}</span>
+          <span class="tag t-{{slugify topic}}" style="--r:{{mult (add (random) -0.5) 5}}deg" x-on:mouseover="hover='{{slugify topic}}'" :class="'{{slugify topic}}'==hover?'thick':''">{{topic}}</span>
         {{/if}}
         {{#if goUp}}
-          <div class="up u-{{slugify topic}}" style="--m:{{goUp}}"></div>
+          <div class="up u-{{slugify topic}}" style="--m:{{goUp}}" x-on:mouseover="hover='{{slugify topic}}'" :class="'{{slugify topic}}'==hover?'thick':''"></div>
         {{/if}}
       </div>
       {{/each}}
