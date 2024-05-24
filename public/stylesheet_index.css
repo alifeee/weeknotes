@@ -1,6 +1,15 @@
+main {
+  min-width: 100%;
+}
+
+#introduction {
+  text-align: center;
+}
+
 #weeknotes {
   display: grid;
   grid-auto-rows: 1fr;
+  padding-right: 2rem;
 }
 
 .weeknote {
@@ -72,9 +81,8 @@
 .tracker.no-notes {
   grid-column: 2 / -1;
   color: gray;
-  text-align: center;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 }
 .tracker .tag {
