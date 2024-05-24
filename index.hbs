@@ -28,7 +28,7 @@ css:
       {{#each (get ../topicstable.table data.page.fileSlug)}}
       <div class="tracker">
         {{#if topic}}
-          <span class="tag t-{{slugify topic}}">{{topic}}</span>
+          <span class="tag t-{{slugify topic}}" style="--r:{{mult (add (random) -0.5) 5}}deg">{{topic}}</span>
         {{/if}}
         {{#if goUp}}
           <div class="up u-{{slugify topic}}" style="--m:{{goUp}}"></div>

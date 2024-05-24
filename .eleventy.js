@@ -51,6 +51,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("range", (to) => [...Array(to)]);
   // add handler to get key from object
   eleventyConfig.addFilter("get", (obj, key) => obj[key]);
+  // add handler to get random number from 0 to 1
+  eleventyConfig.addFilter("random", () => Math.random());
 
   // add helper handler to view data as json
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));

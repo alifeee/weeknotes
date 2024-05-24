@@ -83,6 +83,7 @@
   z-index: 5;
   background-color: white;
   border-radius: 0.25rem;
+  rotate: var(--r);
 }
 .tracker .up {
   position: absolute;
