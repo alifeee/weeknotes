@@ -116,13 +116,17 @@ main {
 
 @media (max-width: 1200px) {
   main {
-    max-width: 40rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
   #weeknotes {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    max-width: 40rem;
   }
   .weeknote {
     margin-top: 1rem;
