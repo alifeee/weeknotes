@@ -36,6 +36,29 @@ module.exports = function (eleventyConfig) {
     return date.toISOString();
   });
 
+  // add handler to add to value (for indexing)
+  eleventyConfig.addFilter("add", (val, add) => val + add);
+  // add handler to add 1 to value (for indexing)
+  eleventyConfig.addFilter("mult", (val, mult) => val * mult);
+  // add handler for fraction
+  eleventyConfig.addFilter(
+    "frac",
+    (numerator, denominator) => numerator / denominator
+  );
+  // add handler for array length
+  eleventyConfig.addFilter("objlength", (obj) => Object.keys(obj).length);
+  // add handler to generate range
+  eleventyConfig.addFilter("range", (to) => [...Array(to)]);
+  // add handler to get key from object
+  eleventyConfig.addFilter("get", (obj, key) => obj[key]);
+  // add handler to get random number from 0 to 1
+  eleventyConfig.addFilter("random", () => Math.random());
+  // add handler to modulo a number
+  eleventyConfig.addFilter("modulo", (num, modulo) => num % modulo);
+
+  // add helper handler to view data as json
+  eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
+
   const markdownIt = require("markdown-it");
   // create a new markdown-it instance with the plugin
   const markdownItAnchor = require("markdown-it-anchor");

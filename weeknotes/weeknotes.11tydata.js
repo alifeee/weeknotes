@@ -6,7 +6,7 @@ function numberWithCommas(x) {
 
 module.exports = function () {
   return {
-    layout: "base",
+    layout: "weeknote",
     comments: true,
     permalink: "/{{ page.fileSlug }}/",
     tags: ["weeknotes"],

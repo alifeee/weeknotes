@@ -1,14 +1,22 @@
+main {
+  min-width: 100%;
+}
+
+#introduction {
+  text-align: start;
+}
+
 #weeknotes {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-auto-rows: 1fr;
+  padding-right: 2rem;
 }
 
 .weeknote {
   padding: 1rem;
-  margin: 0.5rem;
+  margin: 0.5rem 1rem 0.5rem 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 4fr 3fr;
   grid-template-rows: auto auto;
   grid-template-areas:
     "title date"
@@ -16,8 +24,8 @@
   grid-gap: 1rem;
   border: 1px solid grey;
   border-radius: 0.5rem;
-  width: 100%;
   max-width: 40rem;
+  min-width: 25rem;
   position: relative;
   background-color: #f5abb7;
 
@@ -61,4 +69,74 @@
   z-index: 1;
   height: 100%;
   width: 100%;
+}
+
+.tracker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 0.125rem;
+}
+.tracker.no-notes {
+  grid-column: 2 / -1;
+  color: gray;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.tracker .tag {
+  padding: 0.25rem 0.25rem;
+  width: 100%;
+  text-align: center;
+  z-index: 5;
+  background-color: white;
+  border-radius: 0.25rem;
+  rotate: var(--r);
+  border-width: 3px;
+  border-style: solid;
+  box-sizing: content-box;
+}
+.tracker .tag.thick {
+  border-width: 6px;
+  margin: -3px;
+}
+.tracker .up {
+  position: absolute;
+  top: calc(50% + var(--m) * -100%);
+  /* border-left-width: 2px;
+  border-left-style: dotted; */
+  width: 2px;
+  height: calc(100% * var(--m));
+}
+.tracker .up.thick {
+  width: 4px;
+  /* border-left-width: 4px; */
+}
+
+@media (max-width: 1200px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #weeknotes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 40rem;
+  }
+  .weeknote {
+    margin-top: 1rem;
+    width: 100%;
+    min-width: initial;
+  }
+  .tracker {
+    margin-bottom: 0.25rem;
+  }
+  .tracker .up {
+    display: none;
+  }
 }

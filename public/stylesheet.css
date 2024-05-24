@@ -41,8 +41,6 @@ header #rss img {
 }
 
 main {
-  width: 100%;
-  max-width: 40rem;
   margin: 0 auto;
   padding: 0 1rem 1rem;
 }
