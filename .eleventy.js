@@ -1,3 +1,31 @@
+const markdownIt = require("markdown-it");
+
+// use the same slugifier that Markdown-All-In-One uses, as I usually use this to make the TOCs
+// so that heading URL slugs are the same as TOC slugs
+// from https://github.com/yzhang-gh/vscode-markdown/blob/895dfe3a8a78f41aba59063cecec82e8c29196ac/src/util/slugify.ts#L179
+const Regexp_Github_Punctuation = /[^\p{L}\p{M}\p{Nd}\p{Nl}\p{Pc}\- ]/gu;
+function mdInlineToPlainText(text, env) {
+  const engine = new markdownIt("commonmark");
+  const inlineTokens = engine.parseInline(text, env)[0].children;
+
+  return inlineTokens.reduce((result, token) => {
+    switch (token.type) {
+      case "image":
+      case "html_inline":
+        return result;
+      default:
+        return result + token.content;
+    }
+  }, "");
+}
+function slugify(slug, env) {
+  slug = mdInlineToPlainText(slug, env)
+    .replace(Regexp_Github_Punctuation, "")
+    .toLowerCase()
+    .replace(/ /g, "-");
+  return slug;
+}
+
 module.exports = function (eleventyConfig) {
   // pass everything in public to root
   eleventyConfig.addPassthroughCopy({ public: "/" });
@@ -59,10 +87,11 @@ module.exports = function (eleventyConfig) {
   // add helper handler to view data as json
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));
 
-  const markdownIt = require("markdown-it");
   // create a new markdown-it instance with the plugin
   const markdownItAnchor = require("markdown-it-anchor");
-  const markdownLib = markdownIt({ html: true }).use(markdownItAnchor);
+  const markdownLib = markdownIt({ html: true }).use(markdownItAnchor, {
+    slugify,
+  });
   // replace the default markdown-it instance
   eleventyConfig.setLibrary("md", markdownLib);
 };
