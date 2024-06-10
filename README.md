@@ -42,3 +42,13 @@ I installed [Markor](https://play.google.com/store/apps/details?id=net.gsantner.
 1. Open file with Markor and write content
 1. Exit back to MGit, then stage, commit, and push changes (just like normal Git)
 1. When pushed to git, the [pages.yml](./.github/workflows/pages.yml) workflow runs, building the website with [11ty](https://www.11ty.dev/) and publishing it to my GitHub pages site at <https://weeknotes.alifeee.co.uk>
+
+## Topics
+
+Topics are provided per-weeknote in [`_data/topics.yaml`](_data_/topics.yaml). This is transformed into a 2D array with [`_data/topicstable.js`], which can be used in the template to build the topics on the homepage.
+
+To see a list of all topics, use the bash command:
+
+```bash
+cat _data/topics.yaml | pcregrep -o1 "^- (.*)$" | sort | uniq
+```

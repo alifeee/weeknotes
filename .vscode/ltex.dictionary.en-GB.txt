@@ -1,3 +1,4 @@
 Weeknotes
 MGit
 Markor
+per-weeknote
