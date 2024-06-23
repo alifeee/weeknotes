@@ -1,0 +1,3 @@
+{"rule":"ARROWS","sentence":"^\\Q-> watch a GIF!\\E$"}
+{"rule":"THE_SUPERLATIVE","sentence":"^\\QI played Darkest Dungeon.\\E$"}
+{"rule":"UPPERCASE_SENTENCE_START","sentence":"^\\Qalifeee\\E$"}
