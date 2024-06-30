@@ -52,3 +52,21 @@ To see a list of all topics, use the bash command:
 ```bash
 cat _data/topics.yaml | pcregrep -o1 "^- (.*)$" | sort | uniq
 ```
+
+## Archiving
+
+Old posts are "archived". The age past-which to archive is specified in [`./_data/archive.json`](./_data/archive.json)
+
+```json
+{ "archive_older_than_days": 31 }
+```
+
+"Archiving" is really just "hiding" the content with a `<details>` element.
+
+```hbs
+{{#if (gt (daysago page.fileSlug ) archive.archive_older_than_days)}}
+  <p class="archive-text">this weeknote is archived for the sins of being over 1 month old.</p>
+  <details>
+    <summary class="summary">if you have good reason to read it, show anyway</summary>
+{{/if}}
+```

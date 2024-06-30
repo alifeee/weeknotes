@@ -1,4 +1,5 @@
 const markdownIt = require("markdown-it");
+const isoWeek = require("./isoweek");
 
 // use the same slugifier that Markdown-All-In-One uses, as I usually use this to make the TOCs
 // so that heading URL slugs are the same as TOC slugs
@@ -46,6 +47,17 @@ module.exports = function (eleventyConfig) {
     return `${year} week ${week}`;
   });
 
+  // add handler to turn "2023-51" into "how many days ago was 2023-51"
+  eleventyConfig.addFilter("daysago", (fileslug) => {
+    const [year, week] = fileslug.split("-");
+    let weeknote_date = isoWeek.isoWeekToDate(year, week); // monday
+    weeknote_date = isoWeek.addDays(weeknote_date, 6); // sunday
+    const today_date = new Date();
+    const diffTime = Math.abs(today_date - weeknote_date);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  });
+
   // add handler to reverse a list (not mutating it)
   eleventyConfig.addFilter("reversed", (arr) => {
     return [...arr].reverse();
@@ -83,6 +95,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("random", () => Math.random());
   // add handler to modulo a number
   eleventyConfig.addFilter("modulo", (num, modulo) => num % modulo);
+  // add handler for "greater than"
+  eleventyConfig.addFilter("gt", (num, comp) => num > comp);
 
   // add helper handler to view data as json
   eleventyConfig.addFilter("json", (obj) => JSON.stringify(obj));

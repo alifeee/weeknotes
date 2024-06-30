@@ -15,7 +15,7 @@ js:
 <section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}" x-data="{hover: null}">
   {{!-- <span x-text="hover"></span> --}}
   {{#each (reversed collections.weeknotes)}}
-    <div class="weeknote" style="grid-row:{{add @index 1}}">
+    <div style="grid-row:{{add @index 1}}" class="weeknote {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}">
       <h2>
         {{ weeknoteTitle data.page.fileSlug }}
       </h2>

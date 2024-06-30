@@ -2,3 +2,11 @@ main {
   max-width: 40rem;
   width: 100%;
 }
+
+.summary {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.archive-text {
+  text-align: center;
+}
