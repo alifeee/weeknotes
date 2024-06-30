@@ -10,3 +10,7 @@ main {
 .archive-text {
   text-align: center;
 }
+
+main > pre {
+  overflow: auto;
+}
