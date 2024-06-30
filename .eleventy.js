@@ -28,6 +28,7 @@ function slugify(slug, env) {
 }
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.ignores.add("README.md");
   // pass everything in public to root
   eleventyConfig.addPassthroughCopy({ public: "/" });
 
