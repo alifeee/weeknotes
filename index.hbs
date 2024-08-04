@@ -19,15 +19,14 @@ js:
 <section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}" x-data="{hover: null}">
   {{!-- <span x-text="hover"></span> --}}
   {{#each (reversed collections.weeknotes)}}
-    <div style="grid-row:{{add @index 1}}" class="weeknote {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}">
+    <a href="{{ data.page.fileSlug }}" style="grid-row:{{add @index 1}}" class="weeknote {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}">
       <h2>
         {{ weeknoteTitle data.page.fileSlug }}
       </h2>
       {{{ data.wordcount }}}
       {{{ data.links }}}
       <time class="date">{{ dateDisplay data.page.date }}</time>
-      <a href="{{ data.page.fileSlug }}"></a>
-    </div>
+    </a>
     {{#if (get ../topicstable.table data.page.fileSlug)}}
       {{#each (get ../topicstable.table data.page.fileSlug)}}
       <div class="tracker">

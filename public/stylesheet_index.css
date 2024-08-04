@@ -37,6 +37,7 @@ main {
     #f5abb7 0,
     #f5abb7 50%
   );
+  text-decoration: none;
 }
 
 .weeknote {
@@ -61,14 +62,6 @@ main {
 
 .weeknote .date {
   grid-area: date;
-}
-
-.weeknote a {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  height: 100%;
-  width: 100%;
 }
 
 .weeknote.archived,
