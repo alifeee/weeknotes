@@ -89,7 +89,7 @@ main {
 }
 .tracker.no-notes {
   grid-column: 2 / -1;
-  color: gray;
+  opacity: 0.6;
   display: flex;
   justify-content: start;
   align-items: center;
