@@ -6,6 +6,7 @@ css:
 - /colours.css
 js:
 - /alpine.min.js
+- /weeknumber.js
 ---
 <section id="introduction">
   <p>
@@ -14,6 +15,10 @@ js:
   <h2>What are weeknotes?</h2>
   <p>
     Briefly, "I write about what I've been doing this week". Initially inspired by <a href="https://sometimes.digital/">nonnullish</a>, who <a href="https://sometimes.digital/posts/about-weeknotes/">explains weeknotes</a>, along with the <a href="https://indieweb.org/week_note">explanation on the IndieWeb wiki</a>.
+  </p>
+  <p>
+    Today, the <a href="https://en.wikipedia.org/wiki/ISO_week_date">ISO week number</a> is <span id="iso-week-number">
+      <noscript>[this requires JavaScript - <a href="https://www.epochconverter.com/weeks/">see on epochconverter</a>]</noscript></span>.
   </p>
 </section>
 <section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}" x-data="{hover: null}">

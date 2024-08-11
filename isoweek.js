@@ -55,8 +55,9 @@ function isoWeekToDate(year, week) {
 
 // from https://stackoverflow.com/questions/6117814/get-week-of-year-in-javascript-like-in-php
 function getTodaysISOWeekNumber() {
+  let today = new Date();
   var d = new Date(
-    Date.UTC(this.getFullYear(), this.getMonth(), this.getDate())
+    Date.UTC(today.getFullYear(), today.getMonth(), today.getDate() - 1)
   );
   var dayNum = d.getUTCDay() || 7;
   d.setUTCDate(d.getUTCDate() + 4 - dayNum);
