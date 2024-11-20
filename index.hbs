@@ -32,41 +32,56 @@ js:
           </div>
         </a>
       </div>
+      <a class="notes" href="https://blog.alifeee.co.uk/notes/">
+        <p class="n1">notes by alifeee</p>
+        <p class="n2">
+          short, text-only notes, mostly about programming.
+        </p>
+      </a>
     </div>
   </section>
   <h2>What are weeknotes?</h2>
   <p>
-    Briefly, "I write about what I've been doing this week". Initially inspired by <a href="https://sometimes.digital/">nonnullish</a>, who <a href="https://sometimes.digital/posts/about-weeknotes/">explains weeknotes</a>, along with the <a href="https://indieweb.org/week_note">explanation on the IndieWeb wiki</a>.
+    Briefly, "I write about what I've been doing this week". Initially inspired by <a
+      href="https://sometimes.digital/">nonnullish</a>, who <a
+      href="https://sometimes.digital/posts/about-weeknotes/">explains weeknotes</a>, along with the <a
+      href="https://indieweb.org/week_note">explanation on the IndieWeb wiki</a>.
   </p>
   <p>
     Today, the <a href="https://en.wikipedia.org/wiki/ISO_week_date">ISO week number</a> is <span id="iso-week-number">
-      <noscript>[this requires JavaScript - <a href="https://www.epochconverter.com/weeks/">see on epochconverter</a>]</noscript></span>.
+      <noscript>[this requires JavaScript - <a href="https://www.epochconverter.com/weeks/">see on
+          epochconverter</a>]</noscript></span>.
   </p>
 </section>
-<section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}" x-data="{hover: null}">
+<section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}"
+  x-data="{hover: null}">
   {{!-- <span x-text="hover"></span> --}}
   {{#each (reversed collections.weeknotes)}}
-    <a href="{{ data.page.fileSlug }}" style="grid-row:{{add @index 1}}" class="weeknote {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}">
-      <h2>
-        {{ weeknoteTitle data.page.fileSlug }}
-      </h2>
-      {{{ data.wordcount }}}
-      {{{ data.links }}}
-      <time class="date">{{ dateDisplay data.page.date }}</time>
-    </a>
-    {{#if (get ../topicstable.table data.page.fileSlug)}}
-      {{#each (get ../topicstable.table data.page.fileSlug)}}
-      <div class="tracker">
-        {{#if topic}}
-          <span class="tag t-{{slugify topic}}" style="--r:{{mult (add (random) -0.5) 5}}deg" x-on:mouseover="hover='{{slugify topic}}'" :class="'{{slugify topic}}'==hover?'thick':''">{{topic}}</span>
-        {{/if}}
-        {{#if goUp}}
-          <div class="up u-{{slugify topic}}" style="--m:{{goUp}}" x-on:mouseover="hover='{{slugify topic}}'" :class="'{{slugify topic}}'==hover?'thick':''"></div>
-        {{/if}}
-      </div>
-      {{/each}}
-    {{else}}
-      <div class="tracker no-notes">no topics yet... <a href="https://github.com/alifeee/weeknotes/blob/main/_data/topics.yaml">add some?</a></div>
+  <a href="{{ data.page.fileSlug }}" style="grid-row:{{add @index 1}}"
+    class="weeknote {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}">
+    <h2>
+      {{ weeknoteTitle data.page.fileSlug }}
+    </h2>
+    {{{ data.wordcount }}}
+    {{{ data.links }}}
+    <time class="date">{{ dateDisplay data.page.date }}</time>
+  </a>
+  {{#if (get ../topicstable.table data.page.fileSlug)}}
+  {{#each (get ../topicstable.table data.page.fileSlug)}}
+  <div class="tracker">
+    {{#if topic}}
+    <span class="tag t-{{slugify topic}}" style="--r:{{mult (add (random) -0.5) 5}}deg"
+      x-on:mouseover="hover='{{slugify topic}}'" :class="'{{slugify topic}}'==hover?'thick':''">{{topic}}</span>
     {{/if}}
+    {{#if goUp}}
+    <div class="up u-{{slugify topic}}" style="--m:{{goUp}}" x-on:mouseover="hover='{{slugify topic}}'"
+      :class="'{{slugify topic}}'==hover?'thick':''"></div>
+    {{/if}}
+  </div>
+  {{/each}}
+  {{else}}
+  <div class="tracker no-notes">no topics yet... <a
+      href="https://github.com/alifeee/weeknotes/blob/main/_data/topics.yaml">add some?</a></div>
+  {{/if}}
   {{/each}}
 </section>

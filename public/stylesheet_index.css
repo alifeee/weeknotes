@@ -261,3 +261,21 @@ main {
   opacity: 0.6;
   font-size: 0.8rem;
 }
+
+/* notes style */
+.notes {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  background-color: white;
+  color: #111;
+  padding: 1rem 0.5rem;
+  border: 2px dashed #f0f8;
+}
+.notes p {
+  margin: 0;
+}
+.notes .n1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
