@@ -110,3 +110,7 @@ module.exports = function (eleventyConfig) {
   // replace the default markdown-it instance
   eleventyConfig.setLibrary("md", markdownLib);
 };
+
+module.exports.config = {
+  markdownTemplateEngine: false,
+};
