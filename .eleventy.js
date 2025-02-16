@@ -1,4 +1,5 @@
 const markdownIt = require("markdown-it");
+const markdownIt_deflist = require("markdown-it-deflist");
 const isoWeek = require("./isoweek");
 
 // use the same slugifier that Markdown-All-In-One uses, as I usually use this to make the TOCs
@@ -104,9 +105,11 @@ module.exports = function (eleventyConfig) {
 
   // create a new markdown-it instance with the plugin
   const markdownItAnchor = require("markdown-it-anchor");
-  const markdownLib = markdownIt({ html: true }).use(markdownItAnchor, {
-    slugify,
-  });
+  const markdownLib = markdownIt({ html: true })
+    .use(markdownItAnchor, {
+      slugify,
+    })
+    .use(markdownIt_deflist);
   // replace the default markdown-it instance
   eleventyConfig.setLibrary("md", markdownLib);
 };
