@@ -66,8 +66,7 @@ js:
       alifeee
     </p>
   </div>
-  <div class="tracker no-notes">no topics yet... <a
-      href="https://github.com/alifeee/weeknotes/blob/main/_data/topics.yaml">add some?</a></div>
+  <div class="tracker no-notes">no topics yet...</div>
 </div>
 <section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}"
   x-data="{hover: null}">
@@ -95,8 +94,7 @@ js:
   </div>
   {{/each}}
   {{else}}
-  <div class="tracker no-notes">no topics yet... <a
-      href="https://github.com/alifeee/weeknotes/blob/main/_data/topics.yaml">add some?</a></div>
+  <div class="tracker no-notes">no topics yet...</div>
   {{/if}}
   {{/each}}
 </section>
