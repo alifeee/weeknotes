@@ -53,11 +53,26 @@ js:
           epochconverter</a>]</noscript></span>.
   </p>
 </section>
+<div id="weeknotes-end" class="weeknotes-fake" style="grid-template-columns:456px{{#each (range topicstable.maxlength)}} auto{{/each}}">
+  <div style="grid-row:1; display: flex; flex-direction:column;" class="weeknote">
+    <h2>
+      2025 week… 17?
+    </h2>
+    <time class="date">2025-04-21</time>
+    <p>
+      I failed to post 3 weeknotes in a row. This triggered a weeknote-kill-switch which has disabled all weeknotes and stopped me from posting. I hope you enjoyed the journey.
+      <br>
+      <br>
+      alifeee
+    </p>
+  </div>
+  <div class="tracker no-notes">no topics yet... <a
+      href="https://github.com/alifeee/weeknotes/blob/main/_data/topics.yaml">add some?</a></div>
+</div>
 <section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}"
   x-data="{hover: null}">
-  {{!-- <span x-text="hover"></span> --}}
   {{#each (reversed collections.weeknotes)}}
-  <a href="{{ data.page.fileSlug }}" style="grid-row:{{add @index 1}}"
+  <div href="{{ data.page.fileSlug }}" style="grid-row:{{add @index 1}}"
     class="weeknote {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}">
     <h2>
       {{ weeknoteTitle data.page.fileSlug }}
@@ -65,7 +80,7 @@ js:
     {{{ data.wordcount }}}
     {{{ data.links }}}
     <time class="date">{{ dateDisplay data.page.date }}</time>
-  </a>
+  </div>
   {{#if (get ../topicstable.table data.page.fileSlug)}}
   {{#each (get ../topicstable.table data.page.fileSlug)}}
   <div class="tracker">
