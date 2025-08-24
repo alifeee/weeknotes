@@ -11,6 +11,31 @@ main {
   text-align: start;
 }
 
+/* search box with pagefind */
+#search {
+  max-width: 40rem;
+}
+#search button {
+  background-color: #fff0;
+}
+hr {
+  max-width: 40rem;
+  margin: 1rem 0;
+}
+:root {
+  --pagefind-ui-scale: 0.8;
+  --pagefind-ui-primary: #034ad8;
+  --pagefind-ui-text: #393939;
+  --pagefind-ui-background: #ffffff88;
+  --pagefind-ui-border: pink; /* eeeeee */
+  --pagefind-ui-tag: #eeeeee;
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 3 / 2;
+  --pagefind-ui-font: "BogFace", sans-serif;
+}
+
 #weeknotes {
   padding-right: 2rem;
   max-width: 80rem;
@@ -154,33 +179,26 @@ main {
   /* border-left-width: 4px; */
 }
 
-/* @media (max-width: 1200px) {
-  main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  #weeknotes {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 40rem;
-    padding-right: initial;
-  }
-  .weeknote {
-    margin-top: 1rem;
-    width: 100%;
-    min-width: initial;
-  }
-  .tracker {
-    margin-bottom: 0.25rem;
-  }
-  .tracker .up {
+@media (max-width: 40rem) {
+  #weeknotes .weeknote .links {
     display: none;
   }
-} */
+  #weeknotes .weeknote .readtime {
+    display: none;
+  }
+  .weeknote.archived::after {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 30rem) {
+  #weeknotes .weeknote .date {
+    display: none;
+  }
+  .weeknote.archived::after {
+    font-size: 1rem;
+  }
+}
 
 /* external link styles */
 

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "postbuild": "pagefind --site _site"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
   "homepage": "https://github.com/alifeee/weeknotes#readme",
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "markdown-it-anchor": "^8.6.7"
+    "markdown-it-anchor": "^8.6.7",
+    "pagefind": "^1.3.0"
   },
   "dependencies": {
     "markdown-it-deflist": "^3.0.0"

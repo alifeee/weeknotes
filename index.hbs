@@ -2,10 +2,13 @@
 layout: base
 title: alifeee's weeknotes
 css:
-- /stylesheet_index.css
+- /pagefind/pagefind-ui.css
 - /colours.css
+- /stylesheet_index.css
 js:
 - /weeknumber.js
+- /pagefind/pagefind-ui.js
+- /create-pagefind.js
 ---
 <section id="introduction">
   <p>
@@ -60,11 +63,14 @@ js:
       {{ weeknoteTitle data.page.fileSlug }}
     </h4>
     <span class="words">{{{ data.wordcount }}}</span>
-    <span class="links">{{{ data.links }}}</span>
+    {{!-- <span class="links">{{{ data.links }}}</span> --}}
     <time class="date">{{ dateDisplay data.page.date }}</time>
   </a>
   {{/with}}
 </section>
+<h2>SEARCH</h2>
+<div id="search"></div>
+<hr>
 <h2>THE REST</h2>
 <section id="weeknotes">
   {{#each (reversed collections.weeknotes)}}
@@ -84,8 +90,8 @@ js:
     <h4>
       {{ weeknoteTitle data.page.fileSlug }}
     </h4>
-    <span class="words">{{{ data.wordcount }}}</span>
-    <span class="links">{{{ data.links }}}</span>
+    {{{ data.wordcount }}}
+    {{!-- <span class="links">{{{ data.links }}}</span> --}}
     <time class="date">{{ dateDisplay data.page.date }}</time>
   </a>
   {{!-- between years --}}

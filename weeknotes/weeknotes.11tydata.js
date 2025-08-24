@@ -17,9 +17,11 @@ module.exports = function () {
         const content = require("fs").readFileSync(inputPath, "utf-8");
         const words = content.split(/\s+/).length;
         const minutes = words / wordsPerMinute;
-        return `${numberWithCommas(words)} words, ${Math.ceil(
+        return `<span class="words">${numberWithCommas(
+          words
+        )} words</span><span class="readtime">${Math.ceil(
           minutes
-        )} mins @ ${wordsPerMinute} wpm
+        )} mins<span class="readspeed"> @ ${wordsPerMinute} wpm</span></span>
         `;
       },
       links: (data) => {
