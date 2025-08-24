@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Kiran Builder";
+  src: url("kiranbuilder.ttf");
+}
+
 main {
   min-width: 100%;
 }
@@ -7,25 +12,66 @@ main {
 }
 
 #weeknotes {
-  display: grid;
-  grid-auto-rows: 1fr;
   padding-right: 2rem;
+  max-width: 80rem;
+}
+
+.weeknotesinyear {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.2rem;
+  grid-template-areas:
+    "year year year year"
+    "week-01 week-14 week-27 week-40"
+    "week-02 week-15 week-28 week-41"
+    "week-03 week-16 week-29 week-42"
+    "week-04 week-17 week-30 week-43"
+    "week-05 week-18 week-31 week-44"
+    "week-06 week-19 week-32 week-45"
+    "week-07 week-20 week-33 week-46"
+    "week-08 week-21 week-34 week-47"
+    "week-09 week-22 week-35 week-48"
+    "week-10 week-23 week-36 week-49"
+    "week-11 week-24 week-37 week-50"
+    "week-12 week-25 week-38 week-51"
+    "week-13 week-26 week-39 week-52"
+    "- - - week-53";
+  align-items: center;
+}
+.year {
+  grid-area: year;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.year span {
+  text-align: center;
+  font-family: "Kiran Builder", fantasy;
+  font-size: 3em;
+}
+
+.placeholder {
+  background-color: #0002;
+  border-radius: 0.5rem;
+  width: 100%;
+  height: 100%;
+  min-height: 4rem;
+  z-index: -1;
 }
 
 .weeknote {
-  padding: 1rem;
-  margin: 0.5rem 1rem 0.5rem 0.5rem;
-  display: grid;
-  grid-template-columns: 4fr 3fr;
-  grid-template-rows: auto auto;
-  grid-template-areas:
-    "title date"
-    "words links";
-  grid-gap: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   border: 1px solid grey;
   border-radius: 0.5rem;
-  max-width: 40rem;
-  min-width: 27rem;
+
+  width: 100%;
+  height: 100%;
+  max-width: 20rem;
+  max-height: 6lh;
+
   position: relative;
   background-color: #f5abb7;
 
@@ -38,34 +84,19 @@ main {
     #f5abb7 50%
   );
   text-decoration: none;
-}
 
-.weeknote {
   text-align: center;
   color: #444;
   position: relative;
 }
 
-.weeknote h2 {
+.weeknote h4 {
   margin: 0;
-  grid-area: title;
   color: #000;
 }
 
-.weeknote .words {
-  grid-area: words;
-}
-
-.weeknote .links {
-  grid-area: links;
-}
-
-.weeknote .date {
-  grid-area: date;
-}
-
 .weeknote.archived,
-.weeknote.archived h2 {
+.weeknote.archived h4 {
   color: #b88a92;
 }
 .weeknote.archived::after {
@@ -123,7 +154,7 @@ main {
   /* border-left-width: 4px; */
 }
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   main {
     display: flex;
     flex-direction: column;
@@ -149,7 +180,7 @@ main {
   .tracker .up {
     display: none;
   }
-}
+} */
 
 /* external link styles */
 

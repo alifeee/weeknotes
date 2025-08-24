@@ -5,7 +5,6 @@ css:
 - /stylesheet_index.css
 - /colours.css
 js:
-- /alpine.min.js
 - /weeknumber.js
 ---
 <section id="introduction">
@@ -53,35 +52,57 @@ js:
           epochconverter</a>]</noscript></span>.
   </p>
 </section>
-<section id="weeknotes" style="grid-template-columns:auto{{#each (range topicstable.maxlength)}} auto{{/each}}"
-  x-data="{hover: null}">
-  {{!-- <span x-text="hover"></span> --}}
-  {{#each (reversed collections.weeknotes)}}
-  <a href="{{ data.page.fileSlug }}" style="grid-row:{{add @index 1}}"
-    class="weeknote {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}">
-    <h2>
+<h2>THIS WEEK</h2>
+<section id="latest-note">
+  {{#with (getidx (reversed collections.weeknotes) 0)}}
+  <a href="{{ data.page.fileSlug }}" class="weeknote week-{{getweek data.page.fileSlug}} {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}" style="grid-area: week-{{getweek data.page.fileSlug}}">
+    <h4>
       {{ weeknoteTitle data.page.fileSlug }}
-    </h2>
-    {{{ data.wordcount }}}
-    {{{ data.links }}}
+    </h4>
+    <span class="words">{{{ data.wordcount }}}</span>
+    <span class="links">{{{ data.links }}}</span>
     <time class="date">{{ dateDisplay data.page.date }}</time>
   </a>
-  {{#if (get ../topicstable.table data.page.fileSlug)}}
-  {{#each (get ../topicstable.table data.page.fileSlug)}}
-  <div class="tracker">
-    {{#if topic}}
-    <span class="tag t-{{slugify topic}}" style="--r:{{mult (add (random) -0.5) 5}}deg"
-      x-on:mouseover="hover='{{slugify topic}}'" :class="'{{slugify topic}}'==hover?'thick':''">{{topic}}</span>
-    {{/if}}
-    {{#if goUp}}
-    <div class="up u-{{slugify topic}}" style="--m:{{goUp}}" x-on:mouseover="hover='{{slugify topic}}'"
-      :class="'{{slugify topic}}'==hover?'thick':''"></div>
-    {{/if}}
-  </div>
-  {{/each}}
-  {{else}}
-  <div class="tracker no-notes">no topics yet... <a
-      href="https://github.com/alifeee/weeknotes/blob/main/_data/topics.yaml">add some?</a></div>
+  {{/with}}
+</section>
+<h2>THE REST</h2>
+<section id="weeknotes">
+  {{#each (reversed collections.weeknotes)}}
+  {{#if @first}}
+    <h3 class="year">
+      {{#each (str2arr (year data.page.date))}}
+      <span>{{.}}</span>
+      {{/each}}
+    </h3>
+    <div class="weeknotesinyear">
+    {{!-- placeholders --}}
+    {{#each (range 53)}}
+      <div class="placeholder" style="grid-area: week-{{padzeros . 2}}"></div>
+    {{/each}}
+  {{/if}}
+  <a href="{{ data.page.fileSlug }}" class="weeknote week-{{getweek data.page.fileSlug}} {{#if (gt (daysago data.page.fileSlug) ../archive.archive_older_than_days)}}archived{{/if}}" style="grid-area: week-{{getweek data.page.fileSlug}}">
+    <h4>
+      {{ weeknoteTitle data.page.fileSlug }}
+    </h4>
+    <span class="words">{{{ data.wordcount }}}</span>
+    <span class="links">{{{ data.links }}}</span>
+    <time class="date">{{ dateDisplay data.page.date }}</time>
+  </a>
+  {{!-- between years --}}
+  {{#if (or @last (and (not @first) (eq (getweek data.page.fileSlug) "01")))}}
+    {{!-- placeholders --}}
+    {{#each (range 53)}}
+      <div class="placeholder" style="grid-area: week-{{padzeros . 2}}"></div>
+    {{/each}}
+    </div>
+  {{/if}}
+  {{#if (eq (getweek data.page.fileSlug) "01")}}
+      <h3 class="year">
+      {{#each (str2arr (add (year data.page.date) -1))}}
+      <span>{{.}}</span>
+      {{/each}}
+    </h3>
+  <div class="weeknotesinyear">
   {{/if}}
   {{/each}}
 </section>

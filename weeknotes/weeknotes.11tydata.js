@@ -17,11 +17,9 @@ module.exports = function () {
         const content = require("fs").readFileSync(inputPath, "utf-8");
         const words = content.split(/\s+/).length;
         const minutes = words / wordsPerMinute;
-        return `<span class="words">
-            ${numberWithCommas(words)} words, ${Math.ceil(
+        return `${numberWithCommas(words)} words, ${Math.ceil(
           minutes
         )} mins @ ${wordsPerMinute} wpm
-        </span>
         `;
       },
       links: (data) => {
@@ -29,9 +27,7 @@ module.exports = function () {
         const content = require("fs").readFileSync(inputPath, "utf-8");
         const links = content.match(/https?:\/\//g);
         // return length
-        return links
-          ? `<span class="links">${links.length} links</span>`
-          : '<span class="links">0 links</span>';
+        return links ? `${links.length} links` : "0 links";
       },
     },
   };
