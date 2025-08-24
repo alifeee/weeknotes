@@ -12,15 +12,6 @@ main {
   padding-right: 2rem;
 }
 
-.weeknotes-fake {
-  display: grid;
-  grid-auto-rows: 1fr;
-  padding-right: 2rem;
-}
-.weeknotes-fake .weeknote {
-  max-width: 432px;
-}
-
 .weeknote {
   padding: 1rem;
   margin: 0.5rem 1rem 0.5rem 0.5rem;
@@ -146,17 +137,6 @@ main {
     align-items: center;
     max-width: 40rem;
     padding-right: initial;
-  }
-  .weeknotes-fake {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 40rem;
-    padding-right: initial;
-  }
-  .weeknotes-fake .weeknote {
-    max-width: unset;
   }
   .weeknote {
     margin-top: 1rem;

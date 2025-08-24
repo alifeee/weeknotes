@@ -3,4 +3,22 @@ layout: base
 css:
 - /stylesheet_weeknote.css
 ---
-<p class="archive-text">this weeknote is archived!</p>
+{{#if (gt (daysago page.fileSlug ) archive.archive_older_than_days)}}
+  <p class="archive-text">this weeknote is archived for the sins of being over 1 month old.</p>
+  <details>
+    <summary class="summary">if you have good reason to read it, show anyway</summary>
+{{/if}}
+
+<word-count parent="main"></word-count>
+
+{{{content}}}
+
+<h2>Comments</h2>
+
+<p>
+  Email me :) -> <a href="mailto:alifeee@alifeee.net">alifeee@alifeee.net</a> or message me on any social :) -> <a href="https://linktr.ee/alifeee">https://linktr.ee/alifeee</a>
+</p>
+
+{{#if (gt (daysago page.fileSlug ) archive.archive_older_than_days)}}
+</details>
+{{/if}}
