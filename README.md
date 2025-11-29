@@ -1,6 +1,6 @@
 # Weeknotes
 
-[Weeknotes!](http://alifeee.co.uk/weeknotes/)
+[Weeknotes!](http://alifeee.net/weeknotes/)
 
 ## PC Development
 
@@ -41,7 +41,7 @@ I installed [Markor](https://play.google.com/store/apps/details?id=net.gsantner.
 1. Open MGit. Create new file in `./weeknotes/`.
 1. Open file with Markor and write content
 1. Exit back to MGit, then stage, commit, and push changes (just like normal Git)
-1. When pushed to git, the [pages.yml](./.github/workflows/pages.yml) workflow runs, building the website with [11ty](https://www.11ty.dev/) and publishing it to my GitHub pages site at <https://weeknotes.alifeee.co.uk>
+1. When pushed to git, the [pages.yml](./.github/workflows/pages.yml) workflow runs, building the website with [11ty](https://www.11ty.dev/) and publishing it to my GitHub pages site at <https://weeknotes.alifeee.net>
 
 ## Topics
 

@@ -6,19 +6,19 @@ permalink: /feed.xml
 <feed xmlns="http://www.w3.org/2005/Atom">
 
     <title>alifeee's weeknotes</title>
-    <link href="https://weeknotes.alifeee.co.uk/feed.xml" rel="self" />
+    <link href="https://weeknotes.alifeee.net/feed.xml" rel="self" />
     <updated>{{getNowDate}}</updated>
     <author>
         <name>alifeee</name>
     </author>
-    <id>https://weeknotes.alifeee.co.uk/</id>
-    <icon>https://alifeee.co.uk/profile-picture.png</icon>
+    <id>https://weeknotes.alifeee.net/</id>
+    <icon>https://alifeee.net/profile-picture.png</icon>
 
     {{#each collections.weeknotes}}
     <entry>
         <title>alifeee's weeknotes, {{weeknoteTitle page.fileSlug}}</title>
-        <link href="https://weeknotes.alifeee.co.uk/{{page.fileSlug}}" />
-        <id>https://weeknotes.alifeee.co.uk/{{page.fileSlug}}</id>
+        <link href="https://weeknotes.alifeee.net/{{page.fileSlug}}" />
+        <id>https://weeknotes.alifeee.net/{{page.fileSlug}}</id>
         <updated>{{ isoDate data.page.date }}</updated>
         <summary>what alifeee has been thinking about and doing this week ({{ weeknoteTitle page.fileSlug }})</summary>
     </entry>
