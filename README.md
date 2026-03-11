@@ -1,3 +1,5 @@
+> [!CAUTION]
+> MOVED! see <https://git.alifeee.net/weeknotes/about/>
 # Weeknotes
 
 [Weeknotes!](http://alifeee.net/weeknotes/)
